@@ -1,0 +1,35 @@
+# loopback interface
+auto lo
+iface lo inet loopback
+
+# our networking adapter
+auto eth0
+iface eth0 inet manual
+
+# let's allow bridgeing first
+auto br0
+iface br0 inet static
+   address 10.0.2.15 #ip of our host
+   netmask 255.255.255.0 #subnet of our host
+   network 10.0.2.0 #network of our host
+   broadcast 10.0.2.255 #our broadcast address
+   gateway 10.0.2.2 #default gw for our host to access the internet
+   bridge_ports eth0
+   bridge_fd 9
+   bridge_hello 2
+   bridge_maxage 12
+   bridge_stp off
+
+# now let's allow NATting. NOTE: we are not configuring the gateway here. This is a routing interface.
+auto br1
+iface br1 inet static
+   pre-up modprobe dummy #we will need to bridge to dummy interface
+   address 192.168.100.1 #virtual address of our host for NAT. This will be gateway IP for containers
+   netmask 255.255.255.0 #netmask for virtual address
+   network 192.168.100.0 #our virtual address network
+   broadcast 192.168.100.255 #bcast address for our virtual network
+   bridge_fd 0
+   bridge_ports dummy0
+   pre-up /sbin/iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE #masquerade source IP in packets
+   post-up echo "1" > /proc/sys/net/ipv4/ip_forward #let's enable port forwarding to make NAT possible
+   post-down /sbin/iptables -t nat -D POSTROUTING -o br0 -j MASQUERADE #remove rule on exit

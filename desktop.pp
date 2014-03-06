@@ -1,6 +1,8 @@
 node default{
 #	class{'puppetlabs-stdlib':}
 	Package{ ensure => present, provider => apt}
+	package{'software-properties-common':}
+	package{'python-software-properties':}
 	package{'firefox':}
 	package{'monodevelop':}
 	package{'geany': }

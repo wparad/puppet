@@ -36,4 +36,8 @@ class users
                 mode => 0700,
                 source => "puppet:///modules/users/warren/.ssh/id_rsa.pub"
         }
+	~> exec{"Update authorized keys":
+		command => "cat ${ssh_dir}/id_rsa.pub > ${ssh_dir}/authorized_keys",
+		creates => "/home/warren/.ssh/authorized_keys"
+	}
 }

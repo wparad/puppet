@@ -29,15 +29,11 @@ class users
                 group => warren,
                 mode => 0700
         }
-	-> file{"${ssh_dir}/id_rsa.pub":
+	-> file{"${ssh_dir}/authorized_keys":
                 ensure => file,
                 owner => warren,
                 group => warren,
                 mode => 0700,
-                source => "puppet:///modules/users/warren/.ssh/id_rsa.pub"
+                source => "puppet:///modules/users/warren/.ssh/authorized_keys"
         }
-	~> exec{"Update authorized keys":
-		command => "cat ${ssh_dir}/id_rsa.pub > ${ssh_dir}/authorized_keys",
-		creates => "/home/warren/.ssh/authorized_keys"
-	}
 }

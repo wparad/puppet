@@ -36,4 +36,11 @@ class users
                 mode => 0700,
                 source => "puppet:///modules/users/warren/.ssh/authorized_keys"
         }
+	-> file{"${home_dir}/.bashrc":
+		ensure => file,
+                owner => warren,
+                group => warren,
+                mode => 0644,
+                source => "puppet:///modules/users/warren/.bashrc"
+	}
 }

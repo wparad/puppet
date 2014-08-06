@@ -1,5 +1,6 @@
 node default 
 {
 	package{'nano':}
-	class{'users':}
+	-> package{'bash-completion':}
+	-> class{'users':}
 }

@@ -1,1 +1,1 @@
-puppet apply vm.pp --verbose --debug --trace --modulepath=.
+puppet apply vm.pp --verbose --debug --trace --modulepath=modules

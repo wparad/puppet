@@ -2,5 +2,7 @@ node default
 {
 	package{'nano':}
 	-> package{'bash-completion':}
-	-> class{'users':}
+	-> class{'git-server':}
+	-> class{'users':
+}
 }

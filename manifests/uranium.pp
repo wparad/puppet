@@ -15,6 +15,6 @@ node default
 		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git', 'deploy'],
 		id => '1000',
 		email => 'wparad@gmail.com',
-		require => Class['mono_services']
+		require => Group['deploy']
 	}
 }

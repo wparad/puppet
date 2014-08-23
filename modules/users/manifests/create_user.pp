@@ -1,7 +1,7 @@
-define users::create_user($ingroups, $user_shell = '/bin/bash', $id)
+define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'no-reply@gmail.com')
 {
         $user_home_dir = "/home/$name"
-	group{$name:
+		group{$name:
                ensure => present,
                gid => $id
         }
@@ -43,5 +43,11 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id)
                 mode => 0644,
                 source => "puppet:///modules/users/$name/.bashrc"
         }
-
+        -> file{"${user_home_dir}/.forward":
+                ensure => present,
+                owner  => warren,
+                group  => warren,
+                mode   => '0755',
+                content => $email
+        }
 }

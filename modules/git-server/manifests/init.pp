@@ -11,6 +11,4 @@ class git-server()
                 group => git,
                 mode => 0770
         }
-
-	
 }

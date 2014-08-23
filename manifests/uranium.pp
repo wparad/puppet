@@ -5,7 +5,7 @@ node default
 	
 	class{'git-server':}
 	
-	class{'mono_services':}
+	class{'mono_services': deploy_id => '2000'}
 	-> mono_services::service{'courier':
 		#tar_name => "StockEstimator.Service.Main",
 		id => '2001'

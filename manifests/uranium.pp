@@ -12,7 +12,7 @@ node default
 	}
 	
 	users::create_user{'warren':
-		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git'],
+		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git', 'deploy'],
 		id => '1000',
 		email => 'wparad@gmail.com',
 		require => Class['mono_services']

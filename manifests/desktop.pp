@@ -11,7 +11,6 @@ node default{
 	package{'scrot':}
 	package{'vlc':}
 	package{'chromium-browser':}
-
 	#for drivers for steam video
 	package{'libelf-dev':}
 	package{'libc6-dev-i386':}
@@ -25,16 +24,9 @@ node default{
 #		content =>
 #	}
 
+	#Samba setup
+	class{'samba':}
 
-
-	#Setup so that packages can be created on this machine
-	file {["/alt", "/alt/deployed_packages"]:
-                ensure => "directory",
-                owner  => "root",
-                group  => "root",
-                mode   => 777
-        }
-#	
 #	vlc setup
 #	file{'/etc/vlc/lua/http/.hosts'
 #		ensure => present,

@@ -17,4 +17,4 @@
 	auto = 0
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-	find-pull-request = "!f() { git log $1..master --ancestry-path --oneline --merges | tail -1; }; f"
+	find-pull-request = "!f() { git log $1..${2-origin/head} --ancestry-path --oneline --merges | tail -1; }; f"

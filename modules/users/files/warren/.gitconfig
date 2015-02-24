@@ -1,0 +1,23 @@
+[user]
+	email = wparad@gmail.com
+	name = Warren Parad
+[credential]
+[http]
+	sslVerify = true
+#[diff]
+#	tool = bc3
+#	external = U:/bin/git-diff-wrapper.sh
+[difftool "bc3"]
+	path = C:/Program Files (x86)/Beyond Compare 2/BC2.exe
+	cmd = U:/bin/git-diff-wrapper.sh
+[difftool]
+	prompt = false
+[core]
+	autocrlf = true
+	editor = nano #U:/bin/npp.sh
+	sparsecheckout = true
+[gc]
+	auto = 0
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	find-pull-request = "!f() { git log $1..master --ancestry-path --oneline --merges | tail -1; }; f"

@@ -17,4 +17,4 @@ rm -f $FILE
 #echo "NO MATCH"
 SUBJECT="`hostname` Server IP Address"
 echo "~$IP~" > $FILE
-echo "$IP" | mail -aFrom:wparad@gmail.com -s "$SUBJECT" wparad@gmail.com
+echo "$IP `ifconfig`" | mail -aFrom:wparad@gmail.com -s "$SUBJECT" wparad@gmail.com

@@ -10,7 +10,6 @@
 [difftool]
 	prompt = false
 [core]
-	autocrlf = true
 	editor = nano #U:/bin/npp.sh
 	sparsecheckout = true
 [gc]

@@ -6,15 +6,16 @@ node default
 	class{'git-server':}
 	
 	class{'mono_services': deploy_id => '2000'}
-	-> mono_services::service{'courier':
-		#tar_name => "StockEstimator.Service.Main",
-		id => '2001'
-	}
+#	-> mono_services::service{'courier':
+#		#tar_name => "StockEstimator.Service.Main",
+#		id => '2001'
+#	}
 	
-	users::create_user{'warren':
+	-> users::create_user{'warren':
 		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git', 'deploy'],
 		id => '1000',
 		email => 'wparad@gmail.com',
 		require => Group['deploy']
 	}
+	include custom_scripts
 }

@@ -51,6 +51,7 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 				group => $name,
 				mode => 0640,
 				source => "puppet:///modules/users/$name/.gitconfig"
+			}
 			-> file{"${user_home_dir}/.forward":
 				ensure => present,
 				owner  => warren,

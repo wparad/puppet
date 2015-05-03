@@ -15,5 +15,6 @@ fi
 
 rm -f $FILE
 #echo "NO MATCH"
+SUBJECT="`hostname` Server IP Address"
 echo "~$IP~" > $FILE
-echo "$IP" | mail -aFrom:wparad@gmail.com -s "Server IP Address" wparad@gmail.com
+echo "$IP" | mail -aFrom:wparad@gmail.com -s "$SUBJECT" wparad@gmail.com

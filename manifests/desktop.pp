@@ -1,13 +1,23 @@
 node default{
-#	class{'puppetlabs-stdlib':}
 	class{'tools_default':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
 	package{'firefox':}
-	package{'monodevelop':}
-	package{'geany': }
-	package{'mono-complete':}
+	exec{'get latest mono':
+		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
+		path => $::path
+	}
+	-> exec{'update apt-repos':
+		command => 'echo "deb http://download.mono-project.com/repo/debian wheezy main" >> /etc/apt/sources.list.d/mono-xamarin.list',
+		path => $::path
+	}
+	-> exec{'update apt':
+		command => 'apt-get update',
+		path => $::path
+	}
+	-> package{['monodevelop', 'mono-complete', 'fsharp']:}
+	package{'geany':}
 	package{'scrot':}
 	package{'vlc':}
 	package{'chromium-browser':}

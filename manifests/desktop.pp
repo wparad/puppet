@@ -3,6 +3,7 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
+	package{'gscan2pdf':}
 	package{'firefox':}
 	exec{'get latest mono':
 		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',

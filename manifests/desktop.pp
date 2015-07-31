@@ -3,6 +3,8 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
+	#Monitor network traffic
+	package{'tcpflow':}
 	#Scan Pdf files
 	package{'gscan2pdf':}
 	#Combine Pdf's

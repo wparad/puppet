@@ -5,10 +5,16 @@ node default{
 	package{'python-software-properties':}
 	#Monitor network traffic
 	package{'tcpflow':}
+	#office documents
+	package{'libreoffice':}
 	#Scan Pdf files
 	package{'gscan2pdf':}
 	#Combine Pdf's
 	package{'pdftk':}
+
+	#ISO to USB
+	#sudo add-apt-repository ppa:gezakovacs/ppa
+	package{'unetbootin':}
 	package{'firefox':}
 	exec{'get latest mono':
 		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',

@@ -3,6 +3,8 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
+	#SVG Editor for presentations
+	package{'dia':}
 	#Connect to VPN
 	package{'network-manager-openconnect-gnome':}
 

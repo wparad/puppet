@@ -3,6 +3,9 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
+	#Connect to VPN
+	package{'network-manager-openconnect-gnome':}
+
 	#Monitor network traffic
 	package{'tcpflow':}
 	#office documents

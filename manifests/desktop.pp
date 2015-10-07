@@ -33,7 +33,8 @@ node default{
 		command => 'apt-get update',
 		path => $::path
 	}
-	-> package{['monodevelop', 'mono-complete', 'fsharp']:}
+	-> package{['monodevelop']:}
+	#-> package{['mono-complete', 'fsharp']:}
 	package{'geany':}
 	package{'scrot':}
 	package{'vlc':}
@@ -50,9 +51,6 @@ node default{
 #		ensure => present,
 #		content =>
 #	}
-
-	#Samba setup
-	class{'samba':}
 
 #	vlc setup
 #	file{'/etc/vlc/lua/http/.hosts'

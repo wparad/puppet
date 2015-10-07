@@ -43,6 +43,9 @@ node default{
 	package{'libelf-dev':}
 	package{'libc6-dev-i386':}
 	package{'git':}
+	-> users::create_user{'warren':
+		email => 'wparad@gmail.com'
+	}
 	package{'build-essential':}
 	package{'xfce4-mixer':}
 	package{'pavucontrol':}

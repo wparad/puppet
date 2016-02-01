@@ -1,0 +1,3 @@
+#!/bin/bash
+#ldap-search wparad ldap.server.com companydc
+ldapsearch -LLL -H ldap://$2 -b "dc=$3,dc=corp" "(&(objectClass=person)(SAMAccountName=$1))" | grep memberOf | awk -F "CN=" '{print $2}' | awk -F "," '{print $1}'

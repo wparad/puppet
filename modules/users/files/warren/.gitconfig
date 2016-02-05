@@ -21,8 +21,9 @@
 [difftool]
 	prompt = false
 [core]
+	#Bash prompt start "" C:\Git\git-bash.exe -i
 	#autocrlf = true
-	editor = subl #U:/bin/npp.sh
+	editor = nano #subl #U:/bin/npp.sh
 [gc]
 	auto = 0
 [alias]

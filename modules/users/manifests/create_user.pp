@@ -23,33 +23,33 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 			creates => $user_home_dir,
 			require => User[$name]
         }
-        if $user_shell != '/bin/false'{
+        if $user_shell != '/bin/false' {
 			Exec["$name homedir"]
 			-> file{$user_ssh_dir:
 				ensure => directory,
 				owner => $name,
 				group => $name,
-				mode => 0700
+				mode => '0700'
 			}
 			-> file{"${user_ssh_dir}/authorized_keys":
 				ensure => file,
 				owner => $name,
 				group => $name,
-				mode => 0700,
+				mode => '0700',
 				source => "puppet:///modules/users/$name/.ssh/authorized_keys"
 			}
 			-> file{"${user_home_dir}/.bashrc":
 				ensure => file,
 				owner => $name,
 				group => $name,
-				mode => 0644,
+				mode => '0644',
 				source => "puppet:///modules/users/$name/.bashrc"
 			}
 			-> file{"${user_home_dir}/.gitconfig":
 				ensure => file,
 				owner => $name,
 				group => $name,
-				mode => 0640,
+				mode => '0640',
 				source => "puppet:///modules/users/$name/.gitconfig"
 			}
 			-> file{"${user_home_dir}/.forward":

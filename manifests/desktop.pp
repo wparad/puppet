@@ -2,9 +2,7 @@ node default{
 	class{'tools_default':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
-	package{'python-software-properties':}
-	#SVG Editor for presentations
-	package{'dia':}
+	#package{'python-software-properties':}
 	#Connect to VPN
 	package{'network-manager-openconnect-gnome':}
 
@@ -20,7 +18,6 @@ node default{
 	#ISO to USB
 	#sudo add-apt-repository ppa:gezakovacs/ppa
 	package{'unetbootin':}
-	package{'firefox':}
 	exec{'get latest mono':
 		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
 		path => $::path
@@ -35,7 +32,6 @@ node default{
 	}
 	-> package{['monodevelop']:}
 	#-> package{['mono-complete', 'fsharp']:}
-	package{'geany':}
 	package{'scrot':}
 	package{'vlc':}
 	package{'chromium-browser':}
@@ -44,7 +40,9 @@ node default{
 	package{'libc6-dev-i386':}
 	package{'git':}
 	-> users::create_user{'warren':
-		email => 'wparad@gmail.com'
+		email => 'wparad@gmail.com',
+		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'],
+		id => '1000',
 	}
 	package{'build-essential':}
 	package{'xfce4-mixer':}

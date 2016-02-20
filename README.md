@@ -29,6 +29,14 @@ XKBVARIANT="dvp,"
 XKBOPTIONS="grp:alt_shift_toggle"
 ```
 
+* Also
+
+```bash
+dpkg-reconfigure keyboard-configuration
+sudo service keyboard-setup restart
+sudo service lightdm start
+```
+
 ### TODO:
 
 * `modules/git/manifests/init.pp` create the `files/git-completion.bash` @ `/etc/bash_completion.d/git` script

@@ -5,6 +5,8 @@ node default{
 	#package{'python-software-properties':}
 	#Connect to VPN
 	package{'network-manager-openconnect-gnome':}
+	#Remote desktop
+	package{'remmina':}
 
 	#Monitor network traffic
 	package{'tcpflow':}
@@ -22,16 +24,40 @@ node default{
 		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
 		path => $::path
 	}
-	-> exec{'update apt-repos':
-		command => 'echo "deb http://download.mono-project.com/repo/debian wheezy main" >> /etc/apt/sources.list.d/mono-xamarin.list',
+	-> file{'/etc/apt/sources.list.d/mono-xamarin.list':
+		ensure => present,
+		content => 'deb http://download.mono-project.com/repo/debian wheezy main'
+	}
+	-> exec{'get latest peerguardian':
+		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
 		path => $::path
 	}
+#	-> file{'/etc/apt/sources.list.d/peerguardian.list':
+#		ensure => present,
+#		content => 'deb http://moblock-deb.sourceforge.net/debian wheezy main'
+#	}
 	-> exec{'update apt':
 		command => 'apt-get update',
 		path => $::path
 	}
+	-> package{['pgld', 'pglcmd', 'pglgui']:}
 	-> package{['monodevelop']:}
 	#-> package{['mono-complete', 'fsharp']:}
+
+	file{'/etc/apt/sources.list.d/google.list':
+		ensure => present,
+		content => 'deb http://dl.google.com/linux/chrome/deb/ stable main'
+	}
+	-> exec{'get latest google chrome':
+		command => 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - ',
+		path => $path,
+		refreshonly => true
+	}
+	-> Exec['update apt']
+	-> package{'google-chrome-stable':
+		install_options => ['--force-yes']
+	}
+
 	package{'scrot':}
 	package{'vlc':}
 	package{'chromium-browser':}

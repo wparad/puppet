@@ -3,6 +3,7 @@ Puppet
 
 Puppet Deployment scripts
 
+## Remount Partitions with fstab and sudo blkid
 
 ## Instructions
 
@@ -27,3 +28,12 @@ XKBLAYOUT="us,us"
 XKBVARIANT="dvp,"
 XKBOPTIONS="grp:alt_shift_toggle"
 ```
+
+### TODO:
+
+* `modules/git/manifests/init.pp` create the `files/git-completion.bash` @ `/etc/bash_completion.d/git` script
+* Add `~/bin/git-diff-wrapper.sh`:
+	```
+	#!/bin/bash
+	meld $2 $5
+    ```

@@ -17,8 +17,9 @@ node default{
 	#Combine Pdf's
 	package{'pdftk':}
 	
-	#Samba shares
+	#Samba network shares
 	package{'cifs-utils':}
+
 	exec{'update apt':
 		command => 'apt-get update',
 		path => $::path,
@@ -32,9 +33,13 @@ node default{
 	-> Exec['update apt']
 	-> package{'sublime-text-installer':}
 
+	#Take screen shots
 	package{'scrot':}
 	package{'vlc':}
-	package{'git':}
 	
+	#Git
+	package{'git':}
+	package{'meld':}
+
 	package{'autokey-gtk':}
 }

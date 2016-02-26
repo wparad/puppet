@@ -82,6 +82,7 @@ node default{
 		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'], #'audio', 'users'
 		id => '1000',
 	}
+	package{'meld':}
 	package{'build-essential':}
 	package{'xfce4-mixer':}
 	package{'pavucontrol':}

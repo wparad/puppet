@@ -20,29 +20,39 @@ node default{
 	#ISO to USB
 	#sudo add-apt-repository ppa:gezakovacs/ppa
 	package{'unetbootin':}
-	exec{'get latest mono':
-		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
+
+	exec{'update apt':
+		command => 'apt-get update',
+		path => $::path,
+		refreshonly => true,
+	}
+
+	exec{'get latest peerguardian':
+		command => 'add-apt-repository ppa:webupd8team/sublime-text-3 -y',
 		path => $::path
 	}
-	-> file{'/etc/apt/sources.list.d/mono-xamarin.list':
-		ensure => present,
-		content => 'deb http://download.mono-project.com/repo/debian wheezy main'
-	}
-	-> exec{'get latest peerguardian':
+	-> Exec['update apt']
+	-> package{'sublime-text-installer':}
+
+	exec{'get latest peerguardian':
 		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
 		path => $::path
 	}
-#	-> file{'/etc/apt/sources.list.d/peerguardian.list':
-#		ensure => present,
-#		content => 'deb http://moblock-deb.sourceforge.net/debian wheezy main'
-#	}
-	-> exec{'update apt':
-		command => 'apt-get update',
-		path => $::path
-	}
+	-> Exec['update apt']
 	-> package{['pgld', 'pglcmd', 'pglgui']:}
+
+
+	file{'/etc/apt/sources.list.d/mono-xamarin.list':
+		ensure => present,
+		content => 'deb http://download.mono-project.com/repo/debian wheezy main'
+	}
+	-> exec{'get latest mono':
+		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
+		path => $::path,
+		refreshonly => true
+	}
+	-> Exec['update apt']
 	-> package{['monodevelop']:}
-	#-> package{['mono-complete', 'fsharp']:}
 
 	file{'/etc/apt/sources.list.d/google.list':
 		ensure => present,
@@ -60,14 +70,13 @@ node default{
 
 	package{'scrot':}
 	package{'vlc':}
-	package{'chromium-browser':}
 	#for drivers for steam video
 	package{'libelf-dev':}
 	package{'libc6-dev-i386':}
 	package{'git':}
 	-> users::create_user{'warren':
 		email => 'wparad@gmail.com',
-		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'],
+		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'], #'audio', 'users'
 		id => '1000',
 	}
 	package{'build-essential':}
@@ -79,12 +88,12 @@ node default{
 #		content =>
 #	}
 
-#	vlc setup
+#	vlc setup - This wasn't needed the last time, so if it continues to work, it can be removed
 #	file{'/etc/vlc/lua/http/.hosts'
 #		ensure => present,
 #		owner  => "root"
 #		group  => "root",
-#               mode   => 755,
+#		mode   => 755,
 #		content => 'add in the updated host value'
 #	}
 #

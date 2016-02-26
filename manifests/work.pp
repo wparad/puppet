@@ -17,6 +17,8 @@ node default{
 	#Combine Pdf's
 	package{'pdftk':}
 	
+	#Samba shares
+	package{'cifs-utils':}
 	exec{'update apt':
 		command => 'apt-get update',
 		path => $::path,

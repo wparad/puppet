@@ -68,6 +68,9 @@ node default{
 		install_options => ['--force-yes']
 	}
 
+	#Samba network shares
+	package{'cifs-utils':}
+
 	package{'scrot':}
 	package{'vlc':}
 	#for drivers for steam video

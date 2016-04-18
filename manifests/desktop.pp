@@ -3,6 +3,7 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	#package{'python-software-properties':}
+	
 	#Connect to VPN
 	package{'network-manager-openconnect-gnome':}
 	#Remote desktop
@@ -70,6 +71,15 @@ node default{
 
 	#Samba network shares
 	package{'cifs-utils':}
+
+#	Fix Key Board (http://askubuntu.com/questions/7190/why-wont-my-xmodmap-file-load-on-login)
+#	if [ -f $HOME/.Xmodmap ]; then
+#		/usr/bin/xmodmap $HOME/.Xmodmap
+#	fi
+# With Fix to Right Alt
+#	#XKeysymToKeycode returns keycode: 92 for 108
+#	#keycode 108 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
+#	keycode 108 = Alt_R Meta_R Alt_R Meta_R
 
 	package{'scrot':}
 	package{'vlc':}

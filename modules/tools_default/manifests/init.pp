@@ -11,4 +11,5 @@ class tools_default()
 	package{'cron': ensure => present}
 	package{'rsyslog': ensure => present}
 	package{'nano':}
+	package{'curl':}
 }

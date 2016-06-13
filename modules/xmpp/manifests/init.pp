@@ -8,5 +8,13 @@ class xmpp()
 		path => $::path,
 		refreshonly => true
 	}
-
+	
+	Package['ejabberd']
+	-> file{'/etc/ejabberd/ejabberd.cfg':
+		ensure => file,
+		group => 'ejabberd',
+		owner => 'ejabberd',
+		mode => '0600',
+		source => "puppet:///modules/xmpp/ejabberd.cfg"
+	}
 }

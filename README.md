@@ -10,9 +10,10 @@ Puppet Deployment scripts
 * `sudo apt-get install ruby`
 * `sudo gem install puppet`
 * Overwrite the /passwords.json file created with the correct passwords, delete the file afterwards
-    ```
-    {
-		"gmail": "app password"
+	```
+	{
+		"gmail": "app password",
+		"xmpp": "xmpp password"
 	}
 	```
  	* Use of an [app password](https://security.google.com/settings/security/apppasswords) may be needed.

@@ -4,18 +4,12 @@ node default
 	class{'tools_default': stage => 'setup'}
 	
 	class{'git-server':}
-	
-	class{'mono_services': deploy_id => '2000'}
-#	-> mono_services::service{'courier':
-#		#tar_name => "StockEstimator.Service.Main",
-#		id => '2001'
-#	}
-	
-	-> users::create_user{'warren':
-		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git', 'deploy'],
+	users::create_user{'warren':
+		ingroups => ['warren', 'adm', 'sudo', 'audio', 'video', 'users', 'git'],
 		id => '1000',
-		email => 'wparad@gmail.com',
-		require => Group['deploy']
+		email => 'wparad@gmail.com'
 	}
 	include custom_scripts
+
+	class{'xmpp':}
 }

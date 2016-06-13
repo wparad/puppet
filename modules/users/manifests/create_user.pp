@@ -1,20 +1,20 @@
 define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'no-reply@gmail.com')
 {
         $user_home_dir = "/home/$name"
-		group{$name:
-			ensure => present,
-			gid => $id
+	group{$name:
+		ensure => present,
+		gid => $id
         }
 
-		-> user{$name:
-            ensure => present,
-			uid => $id,
-			gid => $name,
-			groups => $ingroups,
-			membership => minimum,
-			shell => $user_shell,
-			home => $user_home_dir,
-			require => Group[$name]
+	-> user{$name:
+		ensure => present,
+		uid => $id,
+		gid => $name,
+		groups => $ingroups,
+		membership => minimum,
+		shell => $user_shell,
+		home => $user_home_dir,
+		require => Group[$name]
         }
 
         $user_ssh_dir = "${user_home_dir}/.ssh"

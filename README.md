@@ -9,7 +9,7 @@ Puppet Deployment scripts
 
 * `sudo apt-get install ruby`
 * `sudo gem install puppet`
-* Overwrite the /passwords.json file created with the correct passwords, delete the file afterwards
+* Overwrite the /passwords.json file created with the correct passwords, delete the file afterwards, used by `get_passwords()`
 	```
 	{
 		"gmail": "app password",
@@ -18,6 +18,9 @@ Puppet Deployment scripts
 	```
  	* Use of an [app password](https://security.google.com/settings/security/apppasswords) may be needed.
 * `sudo puppet apply site.pp --modulepath modules --trace --debug --verbose`
+
+### XMPP: create users
+`sudo ejabberdctl register USERNAME localhost PASSWORD`
 
 ### Fix for dvorak keyboard:
 

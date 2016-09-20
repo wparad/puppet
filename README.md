@@ -3,8 +3,6 @@ Puppet
 
 Puppet Deployment scripts
 
-## Remount Partitions with fstab and sudo blkid
-
 ## Instructions
 
 * `sudo apt-get install ruby`

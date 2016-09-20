@@ -8,6 +8,8 @@ node default{
 	#Remote desktop
 	package{'remmina':}
 
+	#mount share files
+	package{'gigolo':}
 	#Monitor network traffic
 	package{'tcpflow':}
 	#office documents

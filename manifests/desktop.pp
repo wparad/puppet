@@ -42,19 +42,6 @@ node default{
 	-> Exec['update apt']
 	-> package{['pgld', 'pglcmd', 'pglgui']:}
 
-
-	file{'/etc/apt/sources.list.d/mono-xamarin.list':
-		ensure => present,
-		content => 'deb http://download.mono-project.com/repo/debian wheezy main'
-	}
-	-> exec{'get latest mono':
-		command => 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
-		path => $::path,
-		refreshonly => true
-	}
-	-> Exec['update apt']
-	-> package{['monodevelop']:}
-
 	file{'/etc/apt/sources.list.d/google.list':
 		ensure => present,
 		content => 'deb http://dl.google.com/linux/chrome/deb/ stable main'

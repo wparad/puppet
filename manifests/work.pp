@@ -28,12 +28,7 @@ node default{
 		refreshonly => true,
 	}
 
-	exec{'Get Sublime':
-		command => 'add-apt-repository  ppa:webupd8team/sublime-text-3 -y',
-		path => $::path
-	}
-	-> Exec['update apt']
-	-> package{'sublime-text-installer':}
+	class{'sublime':}	
 
 	#Take screen shots
 	package{'scrot':}

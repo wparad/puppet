@@ -1,11 +1,8 @@
 node default{
-	package{'bash-completion': ensure => present}
-	package{'cron': ensure => present}
-	package{'rsyslog': ensure => present}
-	package{'nano':}
+	class{'tools_default':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
-	#Remote desktop
+	#Remote desk$top
 	package{'remmina':}
 
 	#mount share files

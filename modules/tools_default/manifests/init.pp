@@ -12,4 +12,10 @@ class tools_default()
 	package{'rsyslog': ensure => present}
 	package{'nano':}
 	package{'curl':}
+
+	file{'/etc/sysctl.d/10-magic-sysrq.conf':
+		ensure => file,
+		mode => '0644',
+		source => 'puppet:///modules/tools_default/10-magic-sysrq.conf'
+	}
 }

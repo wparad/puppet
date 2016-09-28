@@ -34,10 +34,26 @@ XKBOPTIONS="grp:alt_shift_toggle"
 * Also
 
 ```bash
-dpkg-reconfigure keyboard-configuration
+sudo dpkg-reconfigure keyboard-configuration
 sudo service keyboard-setup restart
 sudo service lightdm start
 ```
+
+* Further: `/etc/X11/xorg.conf.d/20-keyboard.conf`
+
+```bash
+Section "InputClass"
+    Identifier "keyboard"
+    MatchIsKeyboard "yes"
+    Option "XkbLayout" "us"
+    Option "XkbVariant" "dvp"
+EndSection
+```
+
+### Fix <Ctrl><Shift>c
+* If the terminal isn't working update ` ~/.config/xfce4/terminal/terminalrc`
+	`AccelCopy=<Control><Shift>c`
+
 
 ### TODO:
 

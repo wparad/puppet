@@ -4,14 +4,6 @@
 [credential]
 [http]
 	sslVerify = true
-#windows
-#[diff]
-#	tool = bc3
-#	external = U:/bin/git-diff-wrapper.sh
-#[difftool "bc3"]
-#	path = C:/Program Files (x86)/Beyond Compare 2/BC2.exe
-#	cmd = U:/bin/git-diff-wrapper.sh
-#Linux
 [diff]
         tool = meld
         external = ~/bin/git-diff-wrapper.sh

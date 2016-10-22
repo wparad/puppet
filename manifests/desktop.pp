@@ -2,13 +2,19 @@ node default{
 	class{'tools_default':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
-	#package{'python-software-properties':}
-	
+	package{'python-software-properties':}
+	#SVG Editor for presentations
+	package{'dia':}
+
+	#sudo add-apt-repository ppa:phablet-team/tools && sudo apt-get update
+	package{['android-tools-adb', 'android-tools-fastboot']:}
+
 	#Connect to VPN
 	package{'network-manager-openconnect-gnome':}
 	#Remote desktop
 	package{'remmina':}
-
+	#Video converting
+	package{'mkvtoolnix-gui':}
 	#Monitor network traffic
 	package{'tcpflow':}
 	#office documents

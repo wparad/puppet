@@ -4,9 +4,9 @@
 [credential]
 [http]
 	sslVerify = true
-[diff]
-        tool = meld
-        external = ~/bin/git-diff-wrapper.sh
+#[diff]
+#        tool = meld
+#        external = ~/bin/git-diff-wrapper.sh
 [difftool "meld"]
         path = meld
         cmd = ~/bin/git-diff-wrapper.sh

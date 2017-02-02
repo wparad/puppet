@@ -1,0 +1,1 @@
+sudo netstat -tapn | grep dotnet | tr -s ' ' | cut -f7 -d' ' | uniq | cut -f1 -d'/' | xargs -I{} kill -9 {}

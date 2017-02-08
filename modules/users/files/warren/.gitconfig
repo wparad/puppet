@@ -1,6 +1,7 @@
 [user]
 	email = wparad@gmail.com
 	name = Warren Parad
+	signingkey = 5245359AE12AFC00
 [credential]
 [http]
 	sslVerify = true

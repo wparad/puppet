@@ -54,21 +54,21 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 		}
 		-> file{"${user_home_dir}/.forward":
 			ensure => present,
-			owner  => warren,
-			group  => warren,
+			owner => $name,
+			group => $name,
 			mode   => '0755',
 			content => $email
 		}
-
-		exec {"$name vscode config":
-			command => "/bin/mkdir -p ${user_home_dir}/.config/Code/User && /bin/chown -R ${name}:${name} ${user_home_dir}/.config/Code/User",
-			creates => "${user_home_dir}/.config/Code/User",
-			require => User[$name]
-		}
+		-> file{["${user_home_dir}/.config", "${user_home_dir}/.config/Code", "${user_home_dir}/.config/Code/User"]:
+			ensure => directory,
+			owner => $name,
+			group => $name,
+			mode => '0755'
+    	}
 		-> file{"${user_home_dir}/.config/Code/User/settings.json":
 			ensure => present,
-			owner  => warren,
-			group  => warren,
+			owner => $name,
+			group => $name,
 			mode   => '0664',
 			content => "puppet:///modules/users/$name/.config/Code/User/settings.json"
 		}

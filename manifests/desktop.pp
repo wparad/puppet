@@ -1,5 +1,6 @@
 node default{
 	class{'tools_default':}
+	class{'numlock_fix':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	package{'python-software-properties':}
@@ -34,13 +35,8 @@ node default{
 		refreshonly => true,
 	}
 
-	exec{'get latest peerguardian':
-		command => 'add-apt-repository ppa:webupd8team/sublime-text-3 -y',
-		path => $::path
-	}
-	-> Exec['update apt']
-	-> package{'sublime-text-installer':}
-
+	class{'sublime':}
+	
 	exec{'get latest peerguardian':
 		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
 		path => $::path
@@ -82,12 +78,11 @@ node default{
 	package{'git':}
 	-> users::create_user{'warren':
 		email => 'wparad@gmail.com',
-		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'], #'audio', 'users'
+		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare', 'wireshark'], #'audio', 'users'
 		id => '1000',
 	}
 	package{'meld':}
 	package{'build-essential':}
-	package{'xfce4-mixer':}
 	package{'pavucontrol':}
 	package{'autokey-gtk':}
 #	file{"xfce hide_unhide app bar":

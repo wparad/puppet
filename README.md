@@ -21,7 +21,7 @@ Puppet Deployment scripts
 `sudo ejabberdctl register USERNAME localhost PASSWORD`
 
 ### Fix for dvorak keyboard:
-
+* [Possible Fix](https://www.kaufmann.no/roland/dvorak/linux.html) and [Keyboard](https://wiki.archlinux.org/index.php/Logitech_Unifying_Receiver)
 * `/etc/default/keyboard`
 
 ```

@@ -64,13 +64,20 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 			owner => $name,
 			group => $name,
 			mode => '0755'
-    	}
+    		}
 		-> file{"${user_home_dir}/.config/Code/User/settings.json":
 			ensure => present,
 			owner => $name,
 			group => $name,
 			mode   => '0664',
 			content => "puppet:///modules/users/$name/.config/Code/User/settings.json"
+		}
+		-> file{"${user_home_dir}/.Xkbmap":
+			ensure => present,
+			owner => $name,
+			group => $name,
+			mode   => '0664',
+			content => "puppet:///modules/users/$name/.Xkbmap"
 		}
 	}
 }

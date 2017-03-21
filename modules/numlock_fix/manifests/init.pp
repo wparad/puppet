@@ -11,4 +11,11 @@ class numlock_fix() {
 		group => root,
 		source => 'puppet:///modules/numlock_fix/50-unity-greeter.conf'
 	}
+    -> file { '/etc/default/console-setup':
+   		ensure => present,
+		mode => '0755',
+		owner => root,
+		group => root,
+		source => 'puppet:///modules/numlock_fix/console-setup'
+	}
 }

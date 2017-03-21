@@ -1,0 +1,1 @@
+-model pc105 -rules evdev -layout us -variant dvp -option  -option grp:alts_toggle -option compose:rctrl -option numpad:shift3 -option kpdl:semi -option caps:shift

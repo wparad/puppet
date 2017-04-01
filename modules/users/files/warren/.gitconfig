@@ -14,12 +14,12 @@
 [difftool]
 	prompt = false
 [core]
-	#Bash prompt start "" C:\Git\git-bash.exe -i
-	#autocrlf = true
-	editor = nano #subl #U:/bin/npp.sh
+	editor = nano #subl
 [gc]
 	auto = 0
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	find-pull-request = "!f() { git log $1..${2-origin/head} --ancestry-path --oneline --merges | tail -1; }; f"
 	find-tag = "!f() { git show-ref --tags -d | grep $1 | cut -d' ' -f2 | cut -d'^' -f1 | cut -d'/' -f3 ; }; f"
+[credential]
+	helper = cache

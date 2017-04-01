@@ -11,17 +11,23 @@ node default{
 	package{['android-tools-adb', 'android-tools-fastboot']:}
 
 	#Connect to VPN
-	package{'network-manager-openconnect-gnome':}
+	package{'network-manager-openconnect':} -> package{'network-manager-openconnect-gnome':}
+
 	#Remote desktop
 	package{'remmina':}
+
 	#Video converting
 	package{'mkvtoolnix-gui':}
+
 	#Monitor network traffic
 	package{'tcpflow':}
+
 	#office documents
 	package{'libreoffice':}
+
 	#Scan Pdf files
 	package{'gscan2pdf':}
+
 	#Combine Pdf's
 	package{'pdftk':}
 
@@ -102,4 +108,6 @@ node default{
 #
 #
 #
+
+	class{'game_controller':}
 }

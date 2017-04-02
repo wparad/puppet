@@ -18,4 +18,11 @@ class numlock_fix() {
 		group => root,
 		source => 'puppet:///modules/numlock_fix/console-setup'
 	}
+	-> file { '/etc/lightdm/lightdm.config':
+		ensure => present,
+		mode => '0644',
+		owner => root,
+		group => root,
+		source => 'puppet:///modules/numlock_fix/lightdm.config'
+	}
 }

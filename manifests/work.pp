@@ -36,4 +36,5 @@ node default{
 	package{'meld':}
 
 	package{'autokey-gtk':}
+	class{'box_share':}
 }

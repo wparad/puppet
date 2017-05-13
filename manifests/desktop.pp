@@ -110,4 +110,5 @@ node default{
 #
 
 	class{'game_controller':}
+	class{'box_share':}
 }

@@ -12,6 +12,7 @@ class tools_default()
 	package{'rsyslog': ensure => present}
 	package{'nano':}
 	package{'curl':}
+	package{'dconf-editor':}
 
 	file{'/etc/sysctl.d/10-magic-sysrq.conf':
 		ensure => file,

@@ -31,6 +31,10 @@ node default{
 	#Combine Pdf's
 	package{'pdftk':}
 
+	#http://ccrypt.sourceforge.net/
+	#http://www.cs.mcgill.ca/~kaleigh/computers/crypto_rijndael.html
+	package{'ccrypt':}
+
 	#ISO to USB
 	#sudo add-apt-repository ppa:gezakovacs/ppa
 	package{'unetbootin':}

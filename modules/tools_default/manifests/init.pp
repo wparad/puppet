@@ -11,6 +11,7 @@ class tools_default()
 	package{'cron': ensure => present}
 	package{'rsyslog': ensure => present}
 	package{'nano':}
+	package{'xfce4-clipman':}
 	package{'curl':}
 	package{'dconf-editor':}
 

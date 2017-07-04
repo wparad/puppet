@@ -27,6 +27,13 @@ define users::create_user($email = 'no-reply@gmail.com')
 				mode => 0600,
 				source => "puppet:///modules/users/$name/.gnupg/gpg.conf"
 			}
+			-> file{"${user_home_dir}/.gnupg/gpg-agent.conf":
+				ensure => file,
+				owner => $name,
+				group => $name,
+				mode => 0600,
+				source => "puppet:///modules/users/$name/.gnupg/gpg-agent.conf"
+			}
 			-> file{"${user_home_dir}/.forward":
 				ensure => present,
 				owner  => $name,

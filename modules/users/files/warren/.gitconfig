@@ -23,3 +23,5 @@
 	find-tag = "!f() { git show-ref --tags -d | grep $1 | cut -d' ' -f2 | cut -d'^' -f1 | cut -d'/' -f3 ; }; f"
 [credential]
 	helper = cache
+[commit]
+	gpgsign = true

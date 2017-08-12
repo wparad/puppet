@@ -22,6 +22,8 @@
 	find-pull-request = "!f() { git log $1..${2-origin/head} --ancestry-path --oneline --merges | tail -1; }; f"
 	find-tag = "!f() { git show-ref --tags -d | grep $1 | cut -d' ' -f2 | cut -d'^' -f1 | cut -d'/' -f3 ; }; f"
 [credential]
-	helper = cache
+	helper = store
 [commit]
 	gpgsign = true
+[gpg]
+        program = gpg2

@@ -14,6 +14,14 @@ define users::create_user($email = 'no-reply@gmail.com')
 				mode => 0640,
 				source => "puppet:///modules/users/$name/.gitconfig"
 			}
+
+			# https://askubuntu.com/questions/340809/how-can-i-adjust-the-default-passphrase-caching-duration-for-gpg-pgp-ssh-keys
+			# Alternative if the below override does not work. Lauch dconf-editor.
+			# Navigate to desktop - gnome - crypto - cache.
+			# change gpg-cache-method to idle or timeout.
+			# change gpg-cache-ttl to the number of seconds you want the passphrase to be cached.
+			# idle means that the timer is reset each time you use the key before timeout is reached. timeout means that simply the time elapsed since entering the passphrase is considered.
+
 			-> file{"${user_home_dir}/.gnupg":
 				ensure => directory,
 				owner => $name,

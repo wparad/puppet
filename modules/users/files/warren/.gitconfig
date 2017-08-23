@@ -2,28 +2,39 @@
 	email = wparad@gmail.com
 	name = Warren Parad
 	signingkey = E12AFC00
-[credential]
 [http]
 	sslVerify = true
-#[diff]
-#        tool = meld
-#        external = ~/bin/git-diff-wrapper.sh
-[difftool "meld"]
-        path = meld
-        cmd = ~/bin/git-diff-wrapper.sh
 [difftool]
 	prompt = false
 [core]
-	editor = nano #subl
+	editor = nano
+	#Improved diffs
+	# https://www.npmjs.com/package/diff-so-fancy
+	# npm install -g diff-so-fancy
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [gc]
 	auto = 0
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	find-pull-request = "!f() { git log $1..${2-origin/head} --ancestry-path --oneline --merges | tail -1; }; f"
 	find-tag = "!f() { git show-ref --tags -d | grep $1 | cut -d' ' -f2 | cut -d'^' -f1 | cut -d'/' -f3 ; }; f"
-[credential]
-	helper = store
 [commit]
 	gpgsign = true
+[credential]
+	helper = store
 [gpg]
-        program = gpg2
+	program = gpg2
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

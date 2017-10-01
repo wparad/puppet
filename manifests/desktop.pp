@@ -44,8 +44,6 @@ node default{
 		path => $::path,
 		refreshonly => true,
 	}
-
-	class{'sublime':}
 	
 	exec{'get latest peerguardian':
 		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
@@ -91,7 +89,6 @@ node default{
 		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare', 'wireshark'], #'audio', 'users'
 		id => '1000',
 	}
-	package{'meld':}
 	package{'build-essential':}
 	package{'pavucontrol':}
 	package{'autokey-gtk':}

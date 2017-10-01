@@ -1,9 +1,0 @@
-none            /avenger/<%= @name %>/rootfs/proc         proc    nodev,noexec,nosuid 0 0
-none            /avenger/<%= @name %>/rootfs/dev/pts      devpts defaults 0 0
-none            /avenger/<%= @name %>/rootfs/sys          sysfs defaults  0 0
-none            /avenger/<%= @name %>/rootfs/dev/shm      tmpfs defaults  0 0
-/alt            /avenger/<%= @name %>/rootfs/alt                auto  bind      0 0
-/home           /avenger/<%= @name %>/rootfs/home       auto  bind      0 0
-/avenger/media  /avenger/<%= @name %>/rootfs/home/warren/media   auto  bind     0 0
-/etc/localtime  /avenger/<%= @name %>/rootfs/etc/localtime auto bind    0 0
-

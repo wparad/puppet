@@ -25,15 +25,12 @@ node default{
 		refreshonly => true,
 	}
 
-	class{'sublime':}	
-
 	#Take screen shots
 	package{'scrot':}
 	package{'vlc':}
 	
 	#Git
 	package{'git':}
-	package{'meld':}
 
 	package{'autokey-gtk':}
 	class{'box_share':}

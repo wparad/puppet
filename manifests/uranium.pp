@@ -10,6 +10,5 @@ node default
 		email => 'wparad@gmail.com'
 	}
 	include custom_scripts
-
-	class{'xmpp':}
+	class{'ssh_config':}
 }

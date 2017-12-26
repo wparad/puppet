@@ -10,15 +10,11 @@ Puppet Deployment scripts
 * Overwrite the /passwords.json file created with the correct passwords, delete the file afterwards, used by `get_passwords()`
 	```
 	{
-		"gmail": "app password",
-		"xmpp": "xmpp password"
+		"gmail": "app password"
 	}
 	```
  	* Use of an [app password](https://security.google.com/settings/security/apppasswords) may be needed.
 * `sudo puppet apply site.pp --modulepath modules --trace --debug --verbose`
-
-### XMPP: create users
-`sudo ejabberdctl register USERNAME localhost PASSWORD`
 
 ### Fix for dvorak keyboard:
 * [Possible Fix](https://www.kaufmann.no/roland/dvorak/linux.html) and [Keyboard](https://wiki.archlinux.org/index.php/Logitech_Unifying_Receiver)

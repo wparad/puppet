@@ -1,11 +1,46 @@
 // Place your settings in this file to overwrite the default settings
 {
     "workbench.editor.enablePreview": false,
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/Debug": true,
+        "**/debug": true,
+        "**/Release": true,
+        "**/build": true,
+        "**/.tmp": true,
+        "**/coverage": true
+    },
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
         "**/Debug": true,
         "**/debug": true,
-        "**/Release": true
-    }
+        "**/Release": true,
+        "**/.tmp": true,
+        "**/coverage": true
+    },
+    "editor.rulers": [
+        200
+    ],
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": -3,
+    "editor.wordWrap": "off",
+    "sync.gist": "e08046e2f3e3d9f252b8ada74e6e4325",
+    "sync.lastUpload": "2017-12-20T15:22:23.382Z",
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.lastDownload": "2017-12-11T09:52:06.610Z",
+    "sync.version": 262,
+    "sync.showSummary": true,
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "markdown.preview.breaks": true,
+    "gitlens.blame.line.annotationType": "hover",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "vsicons.projectDetection.autoReload": true,
+    "csharp.fallbackDebuggerLinuxRuntimeId": "ubuntu.16.10-x64"
 }

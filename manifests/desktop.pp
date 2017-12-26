@@ -8,22 +8,19 @@ node default{
 	package{'dia':}
 
 	#sudo add-apt-repository ppa:phablet-team/tools && sudo apt-get update
-	package{['android-tools-adb', 'android-tools-fastboot']:}
+	#package{['android-tools-adb', 'android-tools-fastboot']:}
 
 	#Connect to VPN
 	package{'network-manager-openconnect':} -> package{'network-manager-openconnect-gnome':}
 
 	#Remote desktop
-	package{'remmina':}
+	#package{'remmina':}
 
 	#Video converting
 	package{'mkvtoolnix-gui':}
 
 	#Monitor network traffic
 	package{'tcpflow':}
-
-	#office documents
-	package{'libreoffice':}
 
 	#Scan Pdf files
 	package{'gscan2pdf':}
@@ -35,10 +32,6 @@ node default{
 	#http://www.cs.mcgill.ca/~kaleigh/computers/crypto_rijndael.html
 	package{'ccrypt':}
 
-	#ISO to USB
-	#sudo add-apt-repository ppa:gezakovacs/ppa
-	package{'unetbootin':}
-
 	exec{'update apt':
 		command => 'apt-get update',
 		path => $::path,
@@ -49,7 +42,7 @@ node default{
 		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
 		path => $::path
 	}
-	-> Exec['update apt']
+	~> Exec['update apt']
 	-> package{['pgld', 'pglcmd', 'pglgui']:}
 
 	file{'/etc/apt/sources.list.d/google.list':
@@ -61,7 +54,7 @@ node default{
 		path => $path,
 		refreshonly => true
 	}
-	-> Exec['update apt']
+	~> Exec['update apt']
 	-> package{'google-chrome-stable':
 		install_options => ['--force-yes']
 	}
@@ -80,35 +73,18 @@ node default{
 
 	package{'scrot':}
 	package{'vlc':}
+
 	#for drivers for steam video
 	package{'libelf-dev':}
 	package{'libc6-dev-i386':}
 	package{'git':}
 	-> users::create_user{'warren':
 		email => 'wparad@gmail.com',
-		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare', 'wireshark'], #'audio', 'users'
+		ingroups => ['warren', 'adm', 'cdrom', 'sudo', 'dip', 'plugdev', 'lpadmin', 'sambashare'], #'audio', 'users'
 		id => '1000',
 	}
 	package{'build-essential':}
-	package{'pavucontrol':}
 	package{'autokey-gtk':}
-#	file{"xfce hide_unhide app bar":
-#		ensure => present,
-#		content =>
-#	}
-
-#	vlc setup - This wasn't needed the last time, so if it continues to work, it can be removed
-#	file{'/etc/vlc/lua/http/.hosts'
-#		ensure => present,
-#		owner  => "root"
-#		group  => "root",
-#		mode   => 755,
-#		content => 'add in the updated host value'
-#	}
-#
-#
-#
-#
 
 	class{'game_controller':}
 	class{'box_share':}

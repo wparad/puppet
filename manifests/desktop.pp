@@ -49,7 +49,7 @@ node default{
 		ensure => present,
 		content => 'deb http://dl.google.com/linux/chrome/deb/ stable main'
 	}
-	-> exec{'get latest google chrome':
+	~> exec{'get latest google chrome':
 		command => 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - ',
 		path => $path,
 		refreshonly => true
@@ -88,4 +88,8 @@ node default{
 
 	class{'game_controller':}
 	class{'box_share':}
+
+	class{'nodejs':
+		user => 'warren'
+	}
 }

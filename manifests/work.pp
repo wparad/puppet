@@ -3,7 +3,7 @@ node default{
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	#Remote desk$top
-	package{'remmina':}
+	#package{'remmina':}
 
 	#mount share files
 	package{'gigolo':}
@@ -34,4 +34,8 @@ node default{
 
 	package{'autokey-gtk':}
 	class{'box_share':}
+
+	class{'nodejs':
+		user => 'warren'
+	}
 }

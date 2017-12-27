@@ -25,8 +25,6 @@ node default{
 		refreshonly => true,
 	}
 
-	#Take screen shots
-	package{'scrot':}
 	package{'vlc':}
 	
 	#Git

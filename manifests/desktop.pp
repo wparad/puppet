@@ -71,7 +71,6 @@ node default{
 #	#keycode 108 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
 #	keycode 108 = Alt_R Meta_R Alt_R Meta_R
 
-	package{'scrot':}
 	package{'vlc':}
 
 	#for drivers for steam video

@@ -1,6 +1,14 @@
 class nodejs($user = 'warren')
 {
-    exec { 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash':
+    exec { 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -':
+        path => $::path
+    }
+    -> file { '/etc/apt/sources.list.d/yarn.list':
+		ensure => present,
+		content => 'deb https://dl.yarnpkg.com/debian/ stable main'
+	}
+    ~> Exec['update apt']
+    -> exec { 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash':
         user => $user,
         path => $::path,
         creates => "/home/${user}/.nvm/nvm.sh"

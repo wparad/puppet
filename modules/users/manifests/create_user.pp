@@ -79,5 +79,12 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 			mode   => '0664',
 			source => "puppet:///modules/users/$name/.Xkbmap"
 		}
+		-> file{"${user_home_dir}/.Xmodmap":
+			ensure => present,
+			owner => $name,
+			group => $name,
+			mode   => '0664',
+			source => "puppet:///modules/users/$name/.Xmodmap"
+		}
 	}
 }

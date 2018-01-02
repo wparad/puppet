@@ -67,10 +67,6 @@ node default{
 #	if [ -f $HOME/.Xmodmap ]; then
 #		/usr/bin/xmodmap $HOME/.Xmodmap
 #	fi
-# With Fix to Right Alt
-#	#XKeysymToKeycode returns keycode: 92 for 108
-#	#keycode 108 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
-#	keycode 108 = Alt_R Meta_R Alt_R Meta_R
 
 	package{'vlc':}
 

@@ -1,0 +1,1 @@
+sudo grub-reboot Windows\ 7\ \(loader\)\ \(on\ /dev/sdb1\) && sudo init 6

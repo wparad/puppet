@@ -13,6 +13,7 @@ node default{
 	#Connect to VPN
 	package{'network-manager-openconnect':} -> package{'network-manager-openconnect-gnome':}
 	package{'network-manager-vpnc':} -> package{'network-manager-vpnc-gnome':}
+	package{'network-manager-openvpn':} -> package{'network-manager-openvpn-gnome':}
 
 	#Remote desktop
 	#package{'remmina':}

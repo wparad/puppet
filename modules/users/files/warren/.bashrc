@@ -121,3 +121,4 @@ function parse_git_branch () {
 }
 
 bind 'set completion-ignore-case on'
+export PATH=~/.yarn/bin:$PATH

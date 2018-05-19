@@ -61,6 +61,20 @@ node default{
 		install_options => ['--force-yes']
 	}
 
+	file{'/etc/apt/sources.list.d/signal-xenial.list':
+		ensure => present,
+		content => 'deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main'
+	}
+	~> exec{'get latest Signal':
+		command => 'curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -',
+		path => $path,
+		refreshonly => true
+	}
+	~> Exec['update apt']
+	-> package{'signal-desktop':
+		install_options => ['--force-yes']
+	}
+
 	#Samba network shares
 	package{'cifs-utils':}
 

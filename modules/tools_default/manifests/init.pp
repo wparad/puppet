@@ -20,4 +20,7 @@ class tools_default()
 		mode => '0644',
 		source => 'puppet:///modules/tools_default/10-magic-sysrq.conf'
 	}
+
+	#Files to purge
+	package {'popularity-contest': ensure => purged}
 }

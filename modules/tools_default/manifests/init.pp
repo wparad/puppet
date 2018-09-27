@@ -14,6 +14,8 @@ class tools_default()
 	package{'xfce4-clipman':}
 	package{'curl':}
 	package{'dconf-editor':}
+	// For VSCODE https://code.visualstudio.com/docs/setup/linux
+	package{'gvfs-bin':}
 
 	file{'/etc/sysctl.d/10-magic-sysrq.conf':
 		ensure => file,

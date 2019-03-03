@@ -11,10 +11,11 @@ class tools_default()
 	package{'cron': ensure => present}
 	package{'rsyslog': ensure => present}
 	package{'nano':}
+	package{'gnupg2':}
 	package{'xfce4-clipman':}
 	package{'curl':}
 	package{'dconf-editor':}
-	// For VSCODE https://code.visualstudio.com/docs/setup/linux
+	# For VSCODE https://code.visualstudio.com/docs/setup/linux
 	package{'gvfs-bin':}
 
 	file{'/etc/sysctl.d/10-magic-sysrq.conf':

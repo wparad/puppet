@@ -17,7 +17,7 @@ class nodejs($user = 'warren')
         creates => "/home/${user}/.nvm/nvm.sh"
     }
     # https://github.com/sindresorhus/fkill-cli
-    -> exec { "/bin/bash -c 'source /home/${user}/.nvm/nvm.sh && nvm install 8.9.3 && /home/${user}/.yarn/bin/yarn global add mirri diff-so-fancy fkill-cli'":
+    -> exec { "/bin/bash -c 'source /home/${user}/.nvm/nvm.sh && nvm install 10 && yarn global add mirri diff-so-fancy fkill-cli'":
         path => $::path,
         user => $user
     }

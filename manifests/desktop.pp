@@ -3,7 +3,6 @@ node default{
 	class{'numlock_fix':}
 	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
-	package{'python-software-properties':}
 	#SVG Editor for presentations
 	package{'dia':}
 
@@ -40,9 +39,15 @@ node default{
 		refreshonly => true,
 	}
 	
-	exec{'get latest peerguardian':
-		command => 'add-apt-repository ppa:jre-phoenix/ppa -y',
-		path => $::path
+        file{'/etc/apt/sources.list.d/peerguardian.list':
+		ensure => present,
+		content => "deb http://moblock-deb.sourceforge.net/debian stretch main\ndeb-src http://moblock-deb.sourceforge.net/debian stretch main"
+	}
+        -> exec{'gpg --keyserver keyserver.ubuntu.com --recv-keys C0145138':
+               path => $path
+	}
+	-> exec{'gpg --export --armor C0145138 | sudo apt-key add -':
+		path => $path		
 	}
 	~> Exec['update apt']
 	-> package{['pgld', 'pglcmd', 'pglgui']:}

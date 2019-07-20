@@ -16,6 +16,20 @@ Puppet Deployment scripts
  	* Use of an [app password](https://security.google.com/settings/security/apppasswords) may be needed.
 * `sudo puppet apply site.pp --modulepath modules --trace --debug --verbose`
 
+### Uranium specific
+* Add SSH two factor: https://www.rosehosting.com/blog/secure-your-ssh-using-two-factor-authentication-on-ubuntu-16-04/
+* run
+
+```sh
+apt-get install libpam-google-authenticator
+google-authenticator
+```
+* update
+    * => /etc/pam.d/sshd
+		  auth required pam_google_authenticator.so
+		* => /etc/ssh/sshd_config
+		  ChallengeResponseAuthentication yes
+
 ### Fix for dvorak keyboard:
 * [Possible Fix](https://www.kaufmann.no/roland/dvorak/linux.html) and [Keyboard](https://wiki.archlinux.org/index.php/Logitech_Unifying_Receiver)
 * `/etc/default/keyboard`

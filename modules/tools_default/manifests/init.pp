@@ -26,4 +26,12 @@ class tools_default()
 
 	#Files to purge
 	package {'popularity-contest': ensure => purged}
+
+	file{'/etc/sudoers':
+		ensure => file,
+		owner => 'root',
+		group => 'root',
+		mode => '0440',
+		source => 'puppet:///modules/tools_default/etc/sudoers'
+	}
 }

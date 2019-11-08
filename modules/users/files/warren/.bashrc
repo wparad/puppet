@@ -66,7 +66,9 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" #Display the username at the current computer in the 
+    # Append the current directory with the hostname to the title
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\W (\h)\a\]$PS1"
     ;;
 *)
     ;;

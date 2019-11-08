@@ -72,3 +72,6 @@ EndSection
 ### Manual Configuration
 * SUPER + M => Maximize
 * SUPER + S => xfce4-screenshooter -c -r
+
+#### UMS: Universal Media Server
+* https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/Linux-install-instructions

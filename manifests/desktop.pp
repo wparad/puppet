@@ -39,7 +39,7 @@ node default{
 		refreshonly => true,
 	}
 	
-        file{'/etc/apt/sources.list.d/peerguardian.list':
+  file{'/etc/apt/sources.list.d/peerguardian.list':
 		ensure => present,
 		content => "deb http://moblock-deb.sourceforge.net/debian stretch main\ndeb-src http://moblock-deb.sourceforge.net/debian stretch main"
 	}
@@ -96,7 +96,6 @@ node default{
 	package{'autokey-gtk':}
 
 	class{'game_controller':}
-	class{'box_share':}
 
 	class{'nodejs':
 		user => 'warren'

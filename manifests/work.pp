@@ -31,7 +31,6 @@ node default{
 	package{'git':}
 
 	package{'autokey-gtk':}
-	class{'box_share':}
 
 	class{'nodejs':
 		user => 'warren'

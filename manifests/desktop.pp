@@ -95,6 +95,9 @@ node default{
 	package{'build-essential':}
 	package{'autokey-gtk':}
 
+	# GUI to configure key bindings
+	package{'xbindkeys-config':}
+
 	class{'game_controller':}
 
 	class{'nodejs':

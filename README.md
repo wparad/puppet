@@ -75,3 +75,7 @@ EndSection
 
 #### UMS: Universal Media Server
 * https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/Linux-install-instructions
+
+### SpaceView display remaining hard drive space
+* http://www.webupd8.org/2016/10/spaceview-ubuntu-file-system-usage.html
+  * And then edit the tools file and update it to return and use the actual size.

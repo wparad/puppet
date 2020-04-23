@@ -84,6 +84,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+#    alias fast-cp='tar cf - "$1" | pv | (cd "$2"; tar xf -)'
 fi
 
 # colored GCC warnings and errors
@@ -149,13 +150,13 @@ cdnvm(){
         # If there is no default version, set it to `node`
         # This will use the latest version on your machine
         if [[ $default_version == "N/A" ]]; then
-            nvm alias default node;
+            nvm alias default node &> /dev/null
             default_version=$(nvm version default);
         fi
 
         # If the current version is not the default version, set it to use the default version
         if [[ $(nvm current) != "$default_version" ]]; then
-            nvm use default;
+            nvm use default &> /dev/null
         fi
 
         elif [[ -s $nvm_path/.nvmrc && -r $nvm_path/.nvmrc ]]; then
@@ -172,9 +173,9 @@ cdnvm(){
         # If it is not already installed, install it
         # `nvm install` will implicitly use the newly-installed version
         if [[ "$locally_resolved_nvm_version" == "N/A" ]]; then
-            nvm install "$nvm_version";
+            nvm install "$nvm_version" &> /dev/null
         elif [[ $(nvm current) != "$locally_resolved_nvm_version" ]]; then
-            nvm use "$nvm_version";
+            nvm use "$nvm_version" &> /dev/null
         fi
     fi
 }

@@ -129,7 +129,7 @@ action = %(action_)s
 [ssh]
 
 enabled  = true
-port     = ssh
+port     = ssh,4022
 filter   = sshd
 logpath  = /var/log/auth.log
 maxretry = 6

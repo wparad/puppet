@@ -1,7 +1,9 @@
-node default{
+node default
+{
+	Package{ ensure => present, provider => apt}
+
 	class{'tools_default':}
 	class{'numlock_fix':}
-	Package{ ensure => present, provider => apt}
 	package{'software-properties-common':}
 	#SVG Editor for presentations
 	package{'dia':}

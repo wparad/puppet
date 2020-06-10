@@ -1,5 +1,7 @@
 node default 
 {
+	Package{ ensure => present, provider => apt}
+
 	stage{'setup':} -> Stage['main']
 	class{'tools_default': stage => 'setup'}
 	

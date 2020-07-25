@@ -41,18 +41,7 @@ node default
 		refreshonly => true,
 	}
 	
-  file{'/etc/apt/sources.list.d/peerguardian.list':
-		ensure => present,
-		content => "deb http://moblock-deb.sourceforge.net/debian stretch main\ndeb-src http://moblock-deb.sourceforge.net/debian stretch main"
-	}
-        -> exec{'gpg --keyserver keyserver.ubuntu.com --recv-keys C0145138':
-               path => $path
-	}
-	-> exec{'gpg --export --armor C0145138 | sudo apt-key add -':
-		path => $path		
-	}
-	~> Exec['update apt']
-	-> package{['pgld', 'pglcmd', 'pglgui']:}
+  package{['firewalld', 'firewall-config']:}
 
 	file{'/etc/apt/sources.list.d/google.list':
 		ensure => present,

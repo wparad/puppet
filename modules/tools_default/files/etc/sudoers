@@ -30,4 +30,4 @@ root	ALL=(ALL:ALL) ALL
 #includedir /etc/sudoers.d
 #%sudo ALL=(ALL) NOPASSWD:ALL
 warren ALL=(ALL) NOPASSWD:/usr/sbin/grub-reboot
-warren ALL=(ALL) NOPASSWD:/usr/bin/pglcmd
+warren ALL=(ALL) NOPASSWD:/usr/bin/firewall-config

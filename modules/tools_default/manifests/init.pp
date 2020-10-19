@@ -34,4 +34,13 @@ class tools_default()
 		mode => '0440',
 		source => 'puppet:///modules/tools_default/etc/sudoers'
 	}
+
+  # Add dvorak layout with german fixes
+	file{'/usr/share/X11/xkb/symbols/us':
+		ensure => file,
+		owner => 'root',
+		group => 'root',
+		mode => '0644',
+		source => 'puppet:///modules/tools_default/etc/dvorak-keyboard-layout'
+	}
 }

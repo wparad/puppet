@@ -61,7 +61,7 @@ node default
 		path: => $path
 	}
 	-> package{'nautilus':}
-	-> package{'nautilus-scripts-manager':}
+	-> parkage{'filemanager-actions':}
 	-> package{'filemanager-actions-nautilus-extension':}
 
 	#Samba network shares
@@ -88,6 +88,7 @@ node default
 
 	# GUI to configure key bindings
 	package{'xbindkeys-config':}
+	package{'gnome-tweaks':}
 
 	class{'game_controller':}
 

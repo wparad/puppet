@@ -43,4 +43,14 @@ class tools_default()
 		mode => '0644',
 		source => 'puppet:///modules/tools_default/etc/dvorak-keyboard-layout'
 	}
+
+	# Remove buttons 8 & 9 from Razor mouse
+	# xinput set-button-map 10 1 2 3 4 5 6 7 11 12 10
+	file{'/usr/share/X11/xorg.conf.d/70-remap-mouse-keys.conf':
+		ensure => file,
+		owner => 'root',
+		group => 'root',
+		mode => '0644',
+		source => 'puppet:///modules/tools_default/usr/share/X11/xorg.conf.d/remap-mouse-keys.conf'
+	}
 }

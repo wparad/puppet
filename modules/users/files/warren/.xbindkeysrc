@@ -27,18 +27,37 @@
 # Shift+... 
 
 
-
+## IMPORTANT, afterwards run
+## killall xbindkeys && xbindkeys
 
 #keystate_numlock = enable
 #keystate_scrolllock = enable
 #keystate_capslock = enable
 
 
+# trigger keyboard from mouseclick
+"xdotool keydown 'l'"
+       b:11
+"xdotool keyup 'l'"
+       release + b:11
+
+"xdotool keydown 'r'"
+       b:12
+"xdotool keyup 'r'"
+       release + b:12
 
 #Right Click
 "xte 'mouseclick 3'"
-    m:0x14 + c:65
-    Control+Mod2 + space 
+    m:0x15 + c:65
+    Control+Shift+Mod2 + space 
 
+
+#"xte 'KP_Divide'"
+#    b:9
+
+#"xte 'KP_Multiply'"
+#    b:8
+ 
 #
 # End of xbindkeys configuration
+

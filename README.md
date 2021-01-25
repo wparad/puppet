@@ -60,6 +60,8 @@ Section "InputClass"
 EndSection
 ```
 
+* Set the system keyboard: `sudo dpkg-reconfigure keyboard-configuration`
+
 ### Fix <Ctrl><Shift>c
 * If the terminal isn't working update ` ~/.config/xfce4/terminal/terminalrc`
 	`AccelCopy=<Control><Shift>c`

@@ -186,3 +186,4 @@ cdnvm $(pwd)
 # xinput set-button-map 10 1 2 3 4 5 6 7 11 12 10
 
 setxkbmap -layout us -variant dvp
+# Also run `sudo dpkg-reconfigure keyboard-configuration`

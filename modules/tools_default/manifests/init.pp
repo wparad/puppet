@@ -36,6 +36,7 @@ class tools_default()
 	}
 
   # Add dvorak layout with german fixes
+	# To force reload: setxkbmap -layout us -variant dvp
 	file{'/usr/share/X11/xkb/symbols/us':
 		ensure => file,
 		owner => 'root',

@@ -564,19 +564,19 @@ xkb_symbols "dvp" {
     //             Unmodified       Shift           AltGr            Shift+AltGr
     // symbols row, left side
     key <TLDE> { [ dollar,          asciitilde,     dead_tilde                  ] };
-    key <AE01> { [ ampersand,       percent                                     ] };
-    key <AE02> { [ bracketleft,     7,              currency                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE03> { [ braceleft,       5,              cent                        ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE04> { [ braceright,      3,              yen                         ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE05> { [ parenleft,       1,              EuroSign                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE06> { [ equal,           9,              sterling                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE01> { [ ampersand,       1                                     ] };
+    key <AE02> { [ bracketleft,     2,              currency                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE03> { [ braceleft,       3,              cent                        ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE04> { [ braceright,      4,              yen                         ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE05> { [ parenleft,       5,              EuroSign                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE06> { [ equal,           6,              sterling                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
 
     // symbols row, right side
-    key <AE07> { [ asterisk,        0                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE08> { [ parenright,      2,              onehalf                     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE09> { [ plus,            4                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE10> { [ bracketright,    6                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE11> { [ exclam,          8,              exclamdown,      U2E18      ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };  // reversed interrobang
+    key <AE07> { [ asterisk,        7                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE08> { [ parenright,      8,              onehalf                     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE09> { [ plus,            9                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE10> { [ bracketright,    0                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE11> { [ exclam,          percent,        exclamdown,      U2E18      ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };  // reversed interrobang
     key <AE12> { [ numbersign,      grave,          dead_grave                  ] };
     key <BKSP> { [ BackSpace,       BackSpace                                   ] };
 

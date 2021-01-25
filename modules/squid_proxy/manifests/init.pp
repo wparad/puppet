@@ -9,13 +9,12 @@ class squid_proxy()
 	}
 	fail('Setup the password file that ts specified in the conf file')
 
-	file {'/etc/squid3/squid.conf'':
-                ensure => present,
-                owner  => "root",
-                group  => "root",
-                mode   => '0777',
+	file {'/etc/squid3/squid.conf':
+		ensure => present,
+		owner  => "root",
+		group  => "root",
+		mode   => '0777',
 		source => "puppet:///modules/squid_proxy/squid.conf"
-        }
-
+	}
 }
 

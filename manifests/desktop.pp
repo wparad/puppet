@@ -91,6 +91,7 @@ node default
 	package{'gnome-tweaks':}
 
 	class{'game_controller':}
+	class{'notifications':}
 
 	class{'nodejs':
 		user => 'warren'

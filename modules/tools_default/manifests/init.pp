@@ -45,6 +45,19 @@ class tools_default()
 		source => 'puppet:///modules/tools_default/etc/dvorak-keyboard-layout'
 	}
 
+	# TODO: also add in a rules for this and reconfigure to make everything work
+	# setxkbmap -layout us -variant dvp
+	# `sudo dpkg-reconfigure xkb-data`
+	# Also run `sudo dpkg-reconfigure keyboard-configuration`
+
+	file{'/usr/share/X11/xkb/symbols/us-wparad':
+		ensure => file,
+		owner => 'root',
+		group => 'root',
+		mode => '0644',
+		source => 'puppet:///modules/tools_default/etc/dvorak-keyboard-layout'
+	}
+
 	# Remove buttons 8 & 9 from Razor mouse
 	# xinput set-button-map 10 1 2 3 4 5 6 7 11 12 10
 	file{'/usr/share/X11/xorg.conf.d/70-remap-mouse-keys.conf':

@@ -45,6 +45,13 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 			mode => '0644',
 			source => "puppet:///modules/users/$name/.bashrc"
 		}
+		-> file{"${user_home_dir}/.profile":
+			ensure => file,
+			owner => $name,
+			group => $name,
+			mode => '0644',
+			source => "puppet:///modules/users/$name/.profile"
+		}
 		-> file{"${user_home_dir}/.gitconfig":
 			ensure => file,
 			owner => $name,

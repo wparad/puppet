@@ -16,9 +16,6 @@ node default
 	package{'network-manager-vpnc':} -> package{'network-manager-vpnc-gnome':}
 	package{'network-manager-openvpn':} -> package{'network-manager-openvpn-gnome':}
 
-	#Remote desktop
-	#package{'remmina':}
-
 	#Video converting
 	package{'mkvtoolnix-gui':}
 
@@ -60,10 +57,18 @@ node default
 	exec{'add-apt-repository ppa:daniel-marynicz/filemanager-actions':
 		path: => $path
 	}
+	~> Exec['update apt']
 	-> package{'nautilus':}
 	-> parkage{'filemanager-actions':}
 	-> package{'filemanager-actions-nautilus-extension':}
 
+	# Gif capture
+	exec{'add-apt-repository ppa:peek-developers/stable':
+		path: => $path
+	}
+	~> Exec['update apt']
+	-> package{'peek':}
+	
 	#Samba network shares
 	package{'cifs-utils':}
 

@@ -41,7 +41,7 @@ sudo apt install bluetooth pi-bluetooth bluez blueman joystick jstest-gtk
 mkdir -p ~/.stepmania-5.1/NoteSkins/dance
 
 #Mount remote share
-//palladium.warrenparad.net/ddr/ /home/pi/.stepmania-5.1/Songs cifs credentials=/home/pi/credentialsrw,user,relatime,cache=strict,soft,echo_interval=60,actimeo=1,_netdev,x-systemd.automount,x-systemd.device-timeout=30,noperm,nofail 0 0
+//palladium.warrenparad.net/ddr/ /home/pi/.stepmania-5.1/Songs cifs credentials=/home/pi/credentials,rw,user,relatime,cache=strict,soft,echo_interval=60,actimeo=1,_netdev,x-systemd.automount,x-systemd.device-timeout=30,noperm,nofail 0 0
 
 
 

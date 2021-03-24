@@ -81,3 +81,13 @@ EndSection
 ### SpaceView display remaining hard drive space
 * http://www.webupd8.org/2016/10/spaceview-ubuntu-file-system-usage.html
   * And then edit the tools file and update it to return and use the actual size.
+
+### Sambda setup
+Run the following commands:
+```sh
+sudo smbpasswd -a warren
+sudo smbpasswd -a ro
+```
+
+Check the list of users
+`sudo pdbedit -L -v`

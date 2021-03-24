@@ -83,6 +83,9 @@ EndSection
   * And then edit the tools file and update it to return and use the actual size.
 
 ### Sambda setup
+https://linuxize.com/post/how-to-install-and-configure-samba-on-ubuntu-18-04/
+https://www.samba.org/samba/docs/using_samba/ch09.html
+No you can't use the /etc/passwd to support smbpasswd, you must create new passwords
 Run the following commands:
 ```sh
 sudo smbpasswd -a warren

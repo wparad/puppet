@@ -188,3 +188,6 @@ cdnvm $(pwd)
 setxkbmap -layout us -variant dvp
 # `sudo dpkg-reconfigure xkb-data`
 # Also run `sudo dpkg-reconfigure keyboard-configuration`
+
+# set set the source port on laptop correctly
+#pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-internal-mic

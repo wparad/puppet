@@ -100,5 +100,13 @@ define users::create_user($ingroups, $user_shell = '/bin/bash', $id, $email = 'n
 			mode   => '0664',
 			source => "puppet:///modules/users/$name/.xbindkeysrc"
 		}
+		# cat .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml > ~/git/personal/puppet/modules/users/files/warren/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+		-> file { "${user_home_dir}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml":
+			ensure => present,
+			mode => '0644',
+			owner => $name,
+			group => $name,
+			source => 'puppet:///modules/users/$name/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml'
+		}
 	}
 }

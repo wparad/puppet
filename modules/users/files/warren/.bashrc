@@ -94,12 +94,21 @@ fi
 #alias ll='ls -alF'
 #alias la='ls -A'
 #alias l='ls -CF'
+alias microphone='v4l2-ctl'
+alias g='git'
+alias y='yarn'
 
 whichCommand() {
     result=$(which $*)
-    `ls -al "$result"`
+    ls -al "$result"
 }
 alias wls='whichCommand'
+
+codeCommand() {
+    code $@ &
+    disown
+}
+alias code='codeCommand'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -188,12 +197,16 @@ cdnvm(){
 alias cd='cdnvm'
 cdnvm $(pwd)
 
+# GO
+export PATH=$PATH:/usr/local/go/bin
+
 # Fix razor mouse
-# xinput set-button-map 10 1 2 3 4 5 6 7 11 12 10
+xinput set-button-map 10 1 2 3 4 5 6 7 11 12 10
 
-setxkbmap -layout us -variant dvp
-# `sudo dpkg-reconfigure xkb-data`
-# Also run `sudo dpkg-reconfigure keyboard-configuration`
+## Dell XPS Laptop
+# setxkbmap -layout us -variant dvp
+## `sudo dpkg-reconfigure xkb-data`
+## Also run `sudo dpkg-reconfigure keyboard-configuration`
 
-# set set the source port on laptop correctly
-#pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-internal-mic
+## set set the source port on laptop correctly
+# pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-internal-mic

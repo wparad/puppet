@@ -66,11 +66,11 @@
       <property name="&lt;Super&gt;e" type="string" value="nautilus /home/warren/Downloads"/>
       <property name="XF86Favorites" type="string" value="code /home/warren/git/authress/tokens-service"/>
       <property name="&lt;Super&gt;minus" type="string" value="peek"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_3" type="string" value="run-or-raise google google-chrome-stable %U"/>
       <property name="&lt;Super&gt;KP_Subtract" type="string" value="/home/warren/.yarn/bin/fkill xfce4-terminal || echo &quot;&quot;"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_Enter" type="string" value="run-or-raise vlc"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_1" type="string" value="run-or-raise messenger"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_2" type="string" value="run-or-raise &quot;visual studio code&quot; code"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_3" type="string" value="run-or-raise google /usr/bin/brave-browser-stable %U"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

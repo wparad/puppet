@@ -10,3 +10,4 @@ aws --profile wparad route53 change-resource-record-sets --cli-input-json '{ "Ho
 
 # Add to cron
 @reboot ~/.config/nginx/start
+@weekly pkill -f nginx/nginx.conf && ~/.config/nginx/start
